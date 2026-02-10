@@ -71,6 +71,10 @@ def main():
     n = int(next(it))
     start = (int(next(it)), int(next(it)), int(next(it)))
     
+    if n == 0:
+        print("0.0000000000")
+        quit()
+    
     switches = []
     coin_clusters = []
     cluster_return_costs = []  # cost to collect all coins and return to switch
@@ -177,10 +181,7 @@ def main():
         for last_pos in range(len(coin_clusters[last_switch]) + 1):
             answer = min(answer, dp[full_mask][last_switch][last_pos])
     
-    if n == 0:
-        print("0.0000000000")
-    else:
-        print(f"{answer:.10f}")
+    print(f"{answer:.10f}")
 
 if __name__ == "__main__":
     main()
